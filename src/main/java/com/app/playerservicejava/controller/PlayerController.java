@@ -19,7 +19,7 @@ public class PlayerController {
     @Resource
     private PlayerService playerService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET) // get all players
     public ResponseEntity<Players> getPlayers() {
         Players players = playerService.getPlayers();
         return ok(players);
