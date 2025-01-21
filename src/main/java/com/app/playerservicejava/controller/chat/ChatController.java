@@ -28,7 +28,7 @@ public class ChatController {
     private ChatClientService chatClientService;
 
     @PostMapping
-    public @ResponseBody String chat() throws OllamaBaseException, IOException, InterruptedException {
+    public @ResponseBody String chat() throws OllamaBaseException, IOException, InterruptedException {   // using tinyllama
         return chatClientService.chat();
     }
 
