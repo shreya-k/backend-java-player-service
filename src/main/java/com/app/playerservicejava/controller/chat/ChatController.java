@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -28,8 +25,10 @@ public class ChatController {
     private ChatClientService chatClientService;
 
     @PostMapping
-    public @ResponseBody String chat() throws OllamaBaseException, IOException, InterruptedException {   // using tinyllama
-        return chatClientService.chat();
+    public @ResponseBody String chat(@RequestBody String input) throws OllamaBaseException, IOException, InterruptedException {   // using tinyllama
+        return chatClientService.chat(input);
+        // given attributes of the player , generate nickname for the player :
+        //ex: birth year, country
     }
 
     @GetMapping("/list-models")
